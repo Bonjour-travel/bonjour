@@ -2,7 +2,7 @@
   <div class="home-view has-header">
     <sub-nav mold="quickNav"></sub-nav>
     <list mold="thumbnail" :items="events"></list>
-    <infinite-loading :on-infinite="onInfinite" ref="infiniteLoading">
+    <infinite-loading @infinite="onInfinite">
       <loading slot="spinner"></loading>
     </infinite-loading>
   </div>
@@ -30,11 +30,13 @@ export default {
   },
   methods: {
     // Using vue-infinite-loading
-    onInfinite () {
+    onInfinite ($state) {
       setTimeout(() => {
-        this.loadMore()
-        this.$refs.infiniteLoading.$emit('$InfiniteLoading:loaded')
-      }, 1000)
+        this.loadMore().then((res)=>{
+         $state.loaded();
+        })
+        //无限加载的延迟时间
+      }, 100)
     },
     // Dispatching Actions
     ...mapActions([
