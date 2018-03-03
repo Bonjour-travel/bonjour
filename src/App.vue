@@ -7,8 +7,13 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
-  name: 'app'
+  name: 'app',
+  created(){
+    this.$store.dispatch('getLocation','da')
+    console.log(this.$store.state.location)
+  }
 }
 </script>
 
