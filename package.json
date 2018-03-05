@@ -17,6 +17,7 @@
     "superagent": "^3.5.2",
     "superagent-jsonp": "^0.1.1",
     "vue": "^2.1.10",
+    "vue-hotel-datepicker": "^2.2.0",
     "vue-infinite-loading": "^2.0.4",
     "vue-router": "^2.2.0",
     "vue-scroll-behavior": "^0.1.6",

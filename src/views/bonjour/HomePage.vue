@@ -1,6 +1,6 @@
 <template>
   <div class="home-view has-header">
-    <HotelDatePicker :i18n="ptBr"></HotelDatePicker>    
+    <HotelDatePicker :i18n="ptBr" class="my-date-picker"></HotelDatePicker>    
     <sub-nav mold="quickNav"></sub-nav>
     <list mold="thumbnail" :items="events"></list>
     <infinite-loading @infinite="onInfinite">

@@ -9,13 +9,14 @@
 <script>
 import HeaderBar from '../components/HeaderBar'
 import TalionView from '../views/TalionView'
+import HotelDatePicker from 'vue-hotel-datepicker'
 
 export default {
   name: 'pages-view',
-  components: { HeaderBar, TalionView },
+  components: { HeaderBar, TalionView},
   data () {
     return {
-      talion: ''
+      talion: '',
     }
   },
   methods: {
