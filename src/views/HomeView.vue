@@ -1,6 +1,6 @@
 <template>
   <div class="home-view has-header">
-    <HotelDatePicker :i18n="ptBr"></HotelDatePicker>    
+    <!-- <HotelDatePicker :i18n="ptBr" class="hotel-date-picker"></HotelDatePicker>     -->
     <sub-nav mold="quickNav"></sub-nav>
     <list mold="thumbnail" :items="events"></list>
     <infinite-loading @infinite="onInfinite">
@@ -59,6 +59,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.hotel-date-picker{
+  z-index:999;
+}
 .sub-nav {
   margin: 0 1.8rem;
   padding-top: 0.2rem;
