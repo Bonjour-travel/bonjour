@@ -31,7 +31,7 @@
       <li class="talion" @click="showTalion"></li>
       <li class="place-icon"></li>
     </ul>
-    <span class="place-text">深圳</span>
+    <span class="place-text">{{curCity}}</span>
   </div>
 </template>
 
@@ -39,12 +39,18 @@
 export default {
   name: 'header-bar',
   data () {
-    return {}
+    return {
+      curCity : '正在定位'
+    }
   },
   methods: {
     showTalion: function () {
       this.$emit('showTalion')
     }
+  },
+  created(){
+    console.log(returnCitySN["cip"] + ',' + returnCitySN["cname"])
+    this.curCity = returnCitySN["cname"].split('省')[1];
   }
 }
 </script>
@@ -98,7 +104,7 @@ export default {
     margin-top: 0.4rem;
   }
   .place-text {
-    margin-left: -1rem;
+    margin-left: -0.5rem;
     font-size: 140%;
   }
 }

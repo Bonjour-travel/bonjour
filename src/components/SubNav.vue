@@ -20,21 +20,25 @@
     <div class="quickNav" v-if="mold === 'quickNav'">
       <ul class="quick-nav">
         <li>
-          <router-link :to="{name: 'MovieView'}">影院热映</router-link>
+          <a>跳伞</a>
         </li>
         <li>
-          <router-link :to="{name: 'StatusView'}">欧美新碟榜</router-link>
+          <a>潜水</a>
         </li>
         <li>
-          <router-link :to="{name: 'RegisterView'}">注册帐号</router-link>
+          <a>温泉</a>
         </li>
         <li>
-          <template v-if="currentUser.email">
-            <a href="#" @click.prevent="logout()">退出登录</a>
-          </template>
-          <template v-else>
-            <router-link :to="{name: 'LoginView'}" replace>登录豆瓣</router-link>
-          </template>
+          <a>蹦极</a>
+        </li>
+        <li>
+          <a>徒步</a>
+        </li>
+        <li>
+          <a>火山</a>
+        </li>
+        <li>
+          <a>民宿</a>
         </li>
       </ul>
     </div>
@@ -112,17 +116,19 @@ export default {
 .quickNav {
   ul {
     overflow: hidden;
-    margin: 1rem 0 0 0;
+    // margin: 1rem 0 0 0;
     padding-top: 0.6rem;
 
     li {
       float: left;
-      width: 50%;
-      padding: 0.3rem;
+      width: 20%;
+      padding: 0.2rem;
       box-sizing: border-box;
       font-size: 1.5rem;
     }
-
+    .my-button{
+      background-color:rgba(201, 138, 138, 0.877);
+    }
     a {
       display: block;
       max-width: 100%;

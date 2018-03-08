@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "fastclick": "^1.0.6",
+    "mint-ui": "^2.2.13",
     "normalize.css": "^5.0.0",
     "superagent": "^3.5.2",
     "superagent-jsonp": "^0.1.1",

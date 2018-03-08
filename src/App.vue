@@ -11,8 +11,8 @@ import axios from 'axios'
 export default {
   name: 'app',
   created(){
-    this.$store.dispatch('getLocation','da')
-    console.log(this.$store.state.location)
+    // this.$store.dispatch('getLocation','da')
+    // console.log(this.$store.state.location)
   }
 }
 </script>
