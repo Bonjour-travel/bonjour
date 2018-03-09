@@ -88,10 +88,10 @@ export default {
     }
 
     img {
-      float: right;
+      float: left;
       width: 25.6%;
       height: 8.678rem;
-      margin-left: 2.5rem;
+      margin-right: 2.5rem;
     }
 
     .author {
