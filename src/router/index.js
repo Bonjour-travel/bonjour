@@ -3,6 +3,8 @@ import Router from 'vue-router'
 
 import PagesView from '../views/PagesView'
 import HomeView from '../views/HomeView'
+import AttractionListPage from '../views/bonjour/AttractionListPage'
+import AttractionPage from '../views/bonjour/AttractionPage'
 import MovieView from '../views/MovieView'
 import BookView from '../views/BookView'
 import StatusView from '../views/StatusView'
@@ -60,6 +62,16 @@ export default new Router({
           component: DetailView
         }
       ]
+    },
+    {
+      path: '/pages/attractionlist',
+      name: 'AttractionListPage',
+      component: AttractionListPage
+    },
+    {
+      path: '/pages/attraction/:id',
+      name: 'AttractionPage',
+      component: AttractionPage
     },
     {
       path: '/pages/:classify/subject/:id',
