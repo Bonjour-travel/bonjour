@@ -2,10 +2,11 @@
   <div class="home-view has-header">
     <!-- <HotelDatePicker :i18n="ptBr" class="hotel-date-picker"></HotelDatePicker>     -->
     <sub-nav mold="quickNav"></sub-nav>
-    <list mold="thumbnail" :items="events"></list>
-    <infinite-loading @infinite="onInfinite">
+    <!-- <list mold="thumbnail" :items="events"></list> -->
+    <show-list></show-list>
+    <!-- <infinite-loading @infinite="onInfinite">
       <loading slot="spinner"></loading>
-    </infinite-loading>
+    </infinite-loading> -->
   </div>
 </template>
 
@@ -18,10 +19,11 @@ import HotelDatePicker from 'vue-hotel-datepicker'
 import SubNav from '../components/SubNav'
 import List from '../components/List'
 import Loading from '../components/Loading'
+import ShowList from '../components/ShowList'
 
 export default {
   name: 'home-view',
-  components: { SubNav, List, InfiniteLoading, Loading, HotelDatePicker },
+  components: { SubNav, List, InfiniteLoading, Loading, HotelDatePicker, ShowList },
   data () {
     return {
         ptBr: {

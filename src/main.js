@@ -15,7 +15,7 @@ Vue.component(Button.name, Button);
 Vue.use(vueScrollBehavior, { router: router })
 
 // 消除手机端点击300ms延迟
-fastclick.attach(document.body);
+// fastclick.attach(document.body);
 
 /* eslint-disable no-new */
 new Vue({

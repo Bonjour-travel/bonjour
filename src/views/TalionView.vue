@@ -10,6 +10,7 @@
           @keyup.enter="goSearch()">
       </form>
     </div>
+    <HotelDatePicker class="hotel-date-picker" :i18n="ptBr"></HotelDatePicker>
     <ul class="has-header">
       <li>
         <div>
@@ -72,19 +73,29 @@
         </div>
       </li>
     </ul>
-    <sub-nav mold="navBottom"></sub-nav>
+    <!-- <sub-nav mold="navBottom"></sub-nav> -->
   </div>
 </template>
 
 <script>
 import SubNav from '../components/SubNav'
+import HotelDatePicker from 'vue-hotel-datepicker'
 
 export default {
   name: 'talion-view',
-  components: { SubNav },
+  components: { SubNav,HotelDatePicker },
   data () {
     return {
-      queryStr: ''
+      queryStr: '',
+      ptBr:{
+        night: 'Noite',
+        nights: 'Noites',
+        'day-names': ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+        'check-in': '出发日期',
+        'check-out': '返回日期',
+        'month-names': ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+
+      }
     }
   },
   methods: {
@@ -109,6 +120,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.hotel-date-picker{
+  margin-top:5rem;
+  z-index:999;
+}
 .talion-view {
   position: fixed;
   top: 0;
@@ -147,7 +162,7 @@ input[type=search]:focus {
 ul {
   display: flex;
   justify-content: space-around;
-  padding-top: 2.5rem;
+  // padding-top: 2.5rem;
 
   li {
     width: 33.33%;
