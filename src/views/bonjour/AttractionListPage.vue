@@ -1,6 +1,6 @@
 <template>
   <div class="home-view has-header">
-    <list mold="thumbnail" :items="events"></list>
+    <list mold="thumbnail" :items="attractions"></list>
     <infinite-loading @infinite="onInfinite">
       <loading slot="spinner"></loading>
     </infinite-loading>
@@ -9,14 +9,13 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
-
 import InfiniteLoading from 'vue-infinite-loading'
-
 import List from '../../components/List'
 import Loading from '../../components/Loading'
 
 export default {
   name: 'attraction-list-page',
+  // components: { List },
   components: { List, InfiniteLoading, Loading },
   data () {
     return {
@@ -24,9 +23,9 @@ export default {
     }
   },
   computed: {
-    // Getting Vuex State from store/modules/activities
+    // Getting Vuex State from store/modules/attraction
     ...mapState({
-      events: state => state.activities.events
+      attractions: state => state.attraction.attractions
     })
   },
   methods: {

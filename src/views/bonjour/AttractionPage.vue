@@ -80,9 +80,9 @@ export default {
       // Remove copyright imgs
       return this.eventItem.content.replace(/<img.+?>/ig, '')
     },
-    // Getting Vuex State from store/modules/activities
+    // Getting Vuex State from store/modules/attraction
     ...mapState({
-      eventItem: state => state.activities.eventItem
+      eventItem: state => state.attraction.attractionItem
     })
   },
   created () {

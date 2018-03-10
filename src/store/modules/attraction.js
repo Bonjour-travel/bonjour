@@ -1,20 +1,19 @@
 import request from 'superagent'
-import jsonp from 'superagent-jsonp'
 
 const state = {
-    events: [],
+    attractions: [],
     temp: [],
     skip: 0,
-    eventItem: {}
+    attractionItem: {}
 }
 
 const mutations = {
     loadMore(state, payload) {
         state.skip += 3
-        state.events = state.events.concat(payload.res)
+        state.attractions = state.attractions.concat(payload.res)
     },
     getSingleEvent(state, payload) {
-        state.eventItem = payload.res
+        state.attractionItem = payload.res
     }
 }
 
@@ -50,7 +49,6 @@ const actions = {
             request
                 .get('/api/bonjour')
                 // .get('https://api.douban.com/v2/event/' + payload.id)
-                .use(jsonp)
                 .end((err, res) => {
                     if (!err) {
                         commit({
