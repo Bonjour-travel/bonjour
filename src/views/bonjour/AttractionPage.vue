@@ -57,7 +57,7 @@
 <script>
 import { mapState } from 'vuex'
 import Scroller from '../../components/Scroller'
-// import Banner from '../../components/Banner'
+import Banner from '../../components/Banner'
 import Tags from '../../components/Tags'
 import Loading from '../../components/Loading'
 
