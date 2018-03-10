@@ -63,7 +63,7 @@ import Loading from '../../components/Loading'
 
 export default {
   name: 'attraction-page',
-  components: { Banner, Tags, Loading },
+  components: { Tags, Loading },
   data () {
     return {
       showLoading: true
