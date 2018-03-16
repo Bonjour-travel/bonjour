@@ -15,9 +15,9 @@ import { mapState, mapActions } from 'vuex'
 import InfiniteLoading from 'vue-infinite-loading'
 import HotelDatePicker from 'vue-hotel-datepicker'
 
-import SubNav from '../components/SubNav'
-import List from '../components/List'
-import Loading from '../components/Loading'
+import SubNav from '../components/db/SubNav'
+import List from '../components/db/List'
+import Loading from '../components/db/Loading'
 
 export default {
   name: 'home-view',

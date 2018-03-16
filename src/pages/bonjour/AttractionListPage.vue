@@ -12,8 +12,8 @@ import { mapState, mapActions } from 'vuex'
 
 import InfiniteLoading from 'vue-infinite-loading'
 
-import List from '../../components/List'
-import Loading from '../../components/Loading'
+import List from '../../components/db/List'
+import Loading from '../../components/db/Loading'
 
 export default {
   name: 'attraction-list-page',

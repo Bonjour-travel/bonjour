@@ -56,10 +56,10 @@
 
 <script>
 import { mapState } from 'vuex'
-import Scroller from '../../components/Scroller'
-// import Banner from '../../components/Banner'
-import Tags from '../../components/Tags'
-import Loading from '../../components/Loading'
+import Scroller from '../../components/db/Scroller'
+// import Banner from '../../components/db/Banner'
+import Tags from '../../components/db/Tags'
+import Loading from '../../components/db/Loading'
 
 export default {
   name: 'attraction-page',

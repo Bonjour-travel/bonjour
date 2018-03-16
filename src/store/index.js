@@ -9,6 +9,7 @@ import group from './modules/group'
 import search from './modules/search'
 import location from './modules/location'
 import user from './modules/user'
+import lists from './modules/lists'
 
 Vue.use(Vuex)
 
@@ -20,6 +21,7 @@ export default new Vuex.Store({
         subject,
         group,
         location,
+        lists,
         user
     }
 })

@@ -1,37 +1,19 @@
 <p align="center">
-	<img src="./screenshot/douban_logo.png">
-</p>
-
-<br>
-
-<p align="center">
-Awesome douban DEMO created with Vue2.x + Vuex + Vue-router + Superagent
+Awesome bonjour web project created with Vue2.x + Vuex + Vue-router + axios
 </p>
 
 <p align="center">
 
-[![Build Status](https://travis-ci.org/jeneser/douban.svg?branch=master)](https://travis-ci.org/jeneser/douban) [![David](https://img.shields.io/david/expressjs/express.svg?style=flat-square)](https://github.com/jeneser/douban) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/aa2dd7f4191546258edf6e55464d1962)](https://www.codacy.com/app/jeneser/douban?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jeneser/douban&amp;utm_campaign=Badge_Grade) [![Powered](https://img.shields.io/badge/Powered%20by-vue2%2B-brightgreen.svg)](https://github.com/vuejs/vue) [![Percentage of issues still open](http://isitmaintained.com/badge/open/jeneser/douban.svg)](http://isitmaintained.com/project/jeneser/douban "Percentage of issues still open") [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/jeneser/douban.svg)](http://isitmaintained.com/project/jeneser/douban "Average time to resolve an issue") [![PR](https://img.shields.io/badge/PR-welcome-brightgreen.svg)](https://github.com/jeneser/douban/pulls) [![license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/jeneser/douban/blob/master/LICENSE)
+[![Build Status](https://travis-ci.org/jeneser/douban.svg?branch=master)](https://travis-ci.org/jeneser/douban) [![David](https://img.shields.io/david/expressjs/express.svg?style=flat-square)](https://github.com/jeneser/douban)  [![Powered](https://img.shields.io/badge/Powered%20by-vue2%2B-brightgreen.svg)](https://github.com/vuejs/vue) [![PR](https://img.shields.io/badge/PR-welcome-brightgreen.svg)](https://github.com/jeneser/douban/pulls) [![license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/jeneser/douban/blob/master/LICENSE)
 
 </p>
 <br>
-
-<p align="center">
-    <img src="./screenshot/douban_home.gif" >
-    <img src="./screenshot/douban_movie.gif" >
-    <br>
-     <img src="./screenshot/douban_login.gif" >
-    <img src="./screenshot/douban_search.gif" >
-    <br><br>
-    <strong>......</strong>
-    <br>
-	 <strong><a href="https://jeneser.github.io/douban/">Live Demo</a></strong>
-</p>
 
 ## Features
 
-- Vue + vue-router + vuex + Superagent working together
+- Vue + vue-router + vuex + axios working together
 - Vuex divide store into modules
-- Modern JavaScript syntax with ES6
+- Modern JavaScript syntax with ES6/ES7
 - vue-cli webpack template
 - Single-file Vue Components
 - API request seperated
@@ -75,37 +57,6 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 - [normalize.css](https://github.com/necolas/normalize.css) :  A collection of HTML element and attribute style-normalizations
 - [vue-scroll-behavior](https://www.npmjs.com/package/vue-scroll-behavior) :  Completely customize the scroll behavior on route navigation
 
-## API
-
-Douban Api V2
-- Basic URI : `https://api.douban.com/V2/`
-- Online activities
-  - Activities list : `/event/list?loc=108288&count=&start=`
-  - Single activitie info : `/event/id`
-- Movie
-  - In theaters : `/movie/in_theaters?count=`
-  - Coming soon : `/movie/coming_soon?count=`
-  - Top 250 : `/movie/top250?count=`
-  - Single movie info : `/movie/subject/id`
-- Book
-  - Search some books : `/book/search?q=&count=`
-  - Single book info : `/book/id`
-- Search
-  - Search books : `/book/search?q=`
-  - Search movie : `/movie/search?q=`
-  - Search music : `/music/search?q=`
-
-Mock Douban Backend
-- User Basic URI : `https://douban.herokuapp.com/user/`
-- Register
-  - Path: `/user`
-  - method: `POST`
-- Login
-  - Path: `/user/:id`
-  - method: `GET`
-
-For detailed explanation, checkout the [Douban Api V2](https://developers.douban.com/wiki/?title=api_v2) and [Douban Backend](https://github.com/jeneser/douban-backend)
-
 ## File Structure
 ```
 .
@@ -131,26 +82,10 @@ For detailed explanation, checkout the [Douban Api V2](https://developers.douban
 │   ├── App.vue
 │   ├── assets
 │   │   ├── avatar.png
-│   │   ├── book_zw.jpg
-│   │   ├── camera.svg
-│   │   ├── douban-app-logo.png
-│   │   ├── pen.svg
-│   │   ├── promotion_bg.jpg
 │   │   └── user_normal.jpg
 │   ├── components
 │   │   ├── Banner.vue
 │   │   ├── Card.vue
-│   │   ├── DownloadApp.vue
-│   │   ├── Group.vue
-│   │   ├── HeaderBar.vue
-│   │   ├── List.vue
-│   │   ├── Rating.vue
-│   │   ├── Scroller.vue
-│   │   ├── Marking.vue
-│   │   ├── SubNav.vue
-│   │   ├── Tags.vue
-│   │   ├── Types.vue
-│   │   └── UserBar.vue
 │   ├── main.js
 │   ├── router
 │   │   └── index.js
@@ -158,24 +93,9 @@ For detailed explanation, checkout the [Douban Api V2](https://developers.douban
 │   │   ├── index.js
 │   │   └── modules
 │   │       ├── activities.js
-│   │       ├── book.js
-│   │       ├── group.js
-│   │       ├── movie.js
-│   │       ├── search.js
-│   │       ├── subject.js
 │   │       └── user.js
-│   └── views
+│   └── pages
 │       ├── BookView.vue
-│       ├── DetailView.vue
-│       ├── GroupView.vue
-│       ├── HomeView.vue
-│       ├── LoginView.vue
-│       ├── MovieView.vue
-│       ├── PagesView.vue
-│       ├── RegisterView.vue
-│       ├── SearchView.vue
-│       ├── StatusView.vue
-│       ├── SubjectView.vue
 │       └── TalionView.vue
 └── static
     └── logo.png
@@ -183,16 +103,9 @@ For detailed explanation, checkout the [Douban Api V2](https://developers.douban
 
 ## Change log
 
-- Aug 24, 2017:
-  - Merged PR #19
-  - Remove dist/, use tschaub/gh-pages
-- Aug 11, 2017:
-  - Add dir /screenshot.
-  - Update README fix screenshot
-- June 24, 2017:
-  - Update vue-scroll-behavior fix scroll behavior
-- May 28, 2017:
-  - Using superagent
+- 2018-3-17: 
+  - init project from douban to bonjour 
+  - write first version home page
 
 ## Contributing
 

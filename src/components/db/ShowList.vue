@@ -55,7 +55,6 @@ export default {
               "url("+ require('../assets/pic/bon-3.png')+ ")",
               "url("+ require('../assets/pic/bon-4.png')+ ")",
               "url("+ require('../assets/pic/bon-5.png')+ ")",
-              "url("+ require('../assets/pic/bon-6.png')+ ")",
           ],
           lists:[
               {
@@ -72,11 +71,6 @@ export default {
                 title:'最美夜空', 
                 text:'这真是美丽啊',
                 tags:['民宿','星空','跳伞','蹦极']
-              },
-              {
-                title:'最美夜空', 
-                text:'这真是美丽啊',
-                tags:['民宿','星空']
               },
               {
                 title:'最美夜空', 
