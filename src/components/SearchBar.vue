@@ -20,6 +20,8 @@ export default {
     display: flex;
     justify-content:flex-start;
     flex-wrap: wrap;
+    // background: linear-gradient(45deg, red, blue) 0 0 no-repeat;
+    // background-size:100% 40%;
     .search-icon{
         background:url(../assets/search.png) 5px 5px no-repeat;
         height:40px;

@@ -1,13 +1,15 @@
 <template>
   <div class="home-container">
     <search-bar></search-bar>
-    <bo-lists :lists="datas"></bo-lists>
+    <bo-lists :lists="homeLists"></bo-lists>
   </div>
 </template>
 
 <script>
 import SearchBar from '@/components/SearchBar.vue'
 import BoLists from '@/components/BoLists.vue'
+import {mapState} from 'Vuex'
+
 export default {
   name:'Home',
   components:{
@@ -16,13 +18,22 @@ export default {
   },
   data(){
       return{
-          datas:'',
+          datas:[],
       }
   },
-  created(){
-      this.$store.dispatch('getListsInfo').then((datas)=>{
-          this.datas = datas;
+  methods:{
+
+  },
+  watch:{
+
+  },
+  computed:{
+      ...mapState({
+          homeLists:state=>state.listsStore.lists
       })
+  },
+  created(){
+      this.$store.dispatch('getListsInfo')
   }
 }
 </script>
@@ -30,6 +41,6 @@ export default {
 <style lang="less" scoped>
 .home-container{
     background-attachment: fixed;
-    background-color: aliceblue;
+    // background-color: aliceblue;
 }
 </style>

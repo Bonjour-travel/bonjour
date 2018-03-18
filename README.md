@@ -1,6 +1,4 @@
-<p align="center">
 Awesome bonjour web project created with Vue2.x + Vuex + Vue-router + axios
-</p>
 
 <p align="center">
 

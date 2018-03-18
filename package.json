@@ -1,8 +1,8 @@
 {
-  "name": "douban",
+  "name": "bonjour",
   "version": "1.0.0",
-  "description": "豆瓣",
-  "author": "jeneser",
+  "description": "bonjour",
+  "author": "Daguo",
   "private": false,
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -47,7 +47,7 @@
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^2.0.1",
     "eventsource-polyfill": "^0.9.6",
-    "express": "^4.14.1",
+    "express": "^4.16.3",
     "extract-text-webpack-plugin": "^2.0.0-rc.3",
     "file-loader": "^0.10.0",
     "friendly-errors-webpack-plugin": "^1.1.3",
