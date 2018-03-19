@@ -20,6 +20,7 @@ export default {
     display: flex;
     justify-content:flex-start;
     flex-wrap: wrap;
+    // bg-color不支持size?
     // background: linear-gradient(45deg, red, blue) 0 0 no-repeat;
     // background-size:100% 40%;
     .search-icon{
