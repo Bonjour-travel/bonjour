@@ -9,7 +9,7 @@
       <div class="list-info">
         <div class="list-left">{{list.title}}</div>
         <div class="list-right">
-          <div class="list-tag" v-for="tag in list.tags">
+          <div class="list-tag" v-for="(tag,i) in list.tags" :key="i" ref="tags">
             {{tag}}
           </div>
         </div>
@@ -27,12 +27,33 @@ export default {
       color:['rgb(94, 174, 240)','rgb(222, 224, 97)','rgb(33, 83, 38)','rgb(204, 82, 44)']
     }
   },
-  computed:{
+  updated(){
+    //首次挂载成功时lists无数据，refs.tags不存在，请求到Lists数据后只触发updated
+    this.tagRandomColor();
+  },
+  mounted(){
+    this.tagRandomColor();
+  },
+  methods:{
     randomColor(){
       let index = Math.floor(Math.random() * this.color.length)
-      console.log(index)
       return this.color[index];
+    },
+    tagRandomColor(){
+      let colorFlag = '';
+      this.$refs.tags && this.$refs.tags.forEach(v=>{
+        let colorCurrent = this.randomColor();
+        //相邻的tag签不要有重复颜色
+        while(colorCurrent === colorFlag){
+          colorCurrent = this.randomColor()
+        }
+        colorFlag = colorCurrent;
+        v.style.backgroundColor = colorCurrent;
+      })
     }
+  },
+  computed:{
+
   }
 }
 </script>
@@ -86,7 +107,6 @@ export default {
           border-radius: 8px;
           color:aliceblue;
           box-shadow:1px 1px 5px #000;
-          background-color:rgb(204, 82, 44);          
         }
       }
     }

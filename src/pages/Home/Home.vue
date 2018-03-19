@@ -33,9 +33,7 @@ export default {
       })
   },
   created(){
-      this.$store.dispatch('getListsInfo').then(()=>{
-          console.log('ok')
-      })
+      this.$store.dispatch('getListsInfo')
   }
 }
 </script>
