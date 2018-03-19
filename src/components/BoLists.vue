@@ -37,8 +37,10 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .bo-lists{
+  display: flex;
+  flex-wrap: wrap;
   .list-box{
     height:200px;
     width:80%;

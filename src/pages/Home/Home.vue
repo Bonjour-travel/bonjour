@@ -8,7 +8,7 @@
 <script>
 import SearchBar from '@/components/SearchBar.vue'
 import BoLists from '@/components/BoLists.vue'
-import {mapState} from 'Vuex'
+import {mapState} from 'vuex'
 
 export default {
   name:'Home',
@@ -33,12 +33,14 @@ export default {
       })
   },
   created(){
-      this.$store.dispatch('getListsInfo')
+      this.$store.dispatch('getListsInfo').then(()=>{
+          console.log('ok')
+      })
   }
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .home-container{
     background-attachment: fixed;
     // background-color: aliceblue;

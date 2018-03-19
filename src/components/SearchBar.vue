@@ -13,14 +13,14 @@ export default {
   name:'SearchBar'
 }
 </script>
-<style lang='less'>
+<style lang='scss'>
 .search-bar{
     width:100%;
     padding:2rem 1rem;
     display: flex;
     justify-content:flex-start;
     flex-wrap: wrap;
-    // bg-color不支持size?
+    // bg-color不支持size?        h'j
     // background: linear-gradient(45deg, red, blue) 0 0 no-repeat;
     // background-size:100% 40%;
     .search-icon{
