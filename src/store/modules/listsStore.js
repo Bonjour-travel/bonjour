@@ -8,8 +8,10 @@ const actions = {
     getListsInfo({commit},payload){
         return new Promise((reslove,reject)=>{
             axios.get('/api/lists').then((res)=>{
-                commit('getListsInfo',res.data);
-                reslove(res.data);                
+                //模拟分页
+                let data = res.data.slice(0,5);
+                commit('getListsInfo',data);
+                reslove(data);                
             })
         })
     },
@@ -20,7 +22,8 @@ const actions = {
 
 const mutations = {
     getListsInfo(state, data){
-        state.lists = data;
+        //concat,filter,slice这些非变异函数不会改变原数组，所以不能用state.lists.concat这种写法
+        state.lists = state.lists.concat(data);
     },
     addListsInfo(state, data){
         state.lists.push(data);

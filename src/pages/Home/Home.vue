@@ -1,7 +1,8 @@
 <template>
   <div class="home-container">
     <search-bar></search-bar>
-    <bo-lists :lists="homeLists"></bo-lists>
+    <!-- 为请求到数据之前不渲染 bo-lists组件 -->
+    <bo-lists v-if="homeLists.length" :lists="homeLists"></bo-lists>
   </div>
 </template>
 
