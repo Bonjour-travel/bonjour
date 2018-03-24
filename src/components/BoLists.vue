@@ -9,8 +9,8 @@
       <div class="list-info">
         <div class="list-left">{{list.title}}</div>
         <div class="list-right">
-          <div class="list-tag" v-for="(tag,i) in list.tags" :key="i" ref="infoTags">
-            {{tag}}
+          <div class="list-tag" v-for="(colorTags,i) in list.colorTags" :key="i" :style="{backgroundColor:colorTags.color}">
+            {{colorTags.tag}}
           </div>
         </div>
       </div>
@@ -27,23 +27,7 @@ export default {
     }
   },
   data() {
-    return {
-      color: [
-        "rgb(94, 174, 240)",
-        "rgb(222, 224, 97)",
-        "rgb(33, 83, 38)",
-        "rgb(204, 82, 44)"
-      ]
-    };
-  },
-  mounted() {
-    //首次挂载成功时lists无数据，refs.tags不存在，请求到Lists数据后只触发updateds
-    //调用时添加v-if解决该问题
-    this.tagRandomColor();
-  },
-  updated() {
-    //lazy load不得不加上updated
-    this.tagRandomColor();
+    return {};
   },
   created() {
     this.onScrollGet();
@@ -69,23 +53,6 @@ export default {
         };
       } else {
       }
-    },
-    randomColor() {
-      let index = Math.floor(Math.random() * this.color.length);
-      return this.color[index];
-    },
-    tagRandomColor() {
-      let colorFlag = "";
-      this.$refs.infoTags &&
-        this.$refs.infoTags.forEach(v => {
-          let colorCurrent = this.randomColor();
-          //相邻的tag签不要有重复颜色
-          while (colorCurrent === colorFlag) {
-            colorCurrent = this.randomColor();
-          }
-          colorFlag = colorCurrent;
-          v.style.backgroundColor = colorCurrent;
-        });
     }
   },
   computed: {}
