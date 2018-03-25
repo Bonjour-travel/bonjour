@@ -9,12 +9,12 @@ const actions = {
         return new Promise((reslove,reject)=>{
             axios.get('/api/lists').then((res)=>{
                 commit('getListsInfo',res.data);
-                reslove(res.data);                
+                reslove(res.data);
             })
         })
     },
     addListsInfo({commit},payload){
-                commit('addListsInfo',payload);
+        commit('addListsInfo',payload);
     }
 }
 

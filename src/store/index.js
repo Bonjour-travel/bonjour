@@ -10,11 +10,15 @@ import Vuex from 'vuex'
 // import location from './modules/location'
 // import user from './modules/user'
 import listsStore from './modules/listsStore'
+import attraction from './modules/attraction'
+import weather from './modules/weather'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
     modules: {
-        listsStore
+        listsStore,
+        attraction,
+        weather
     }
 })

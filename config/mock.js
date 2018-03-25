@@ -1,3 +1,5 @@
 module.exports = {
-    '/api/lists':'/lists.json'
+    '/api/lists': '/lists.json',
+    '/api/bonjour': '/bonjour.json',
+    '/api/bonjour0': '/bonjour0.json'
 }

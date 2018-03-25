@@ -3,8 +3,6 @@ import Router from 'vue-router'
 
 // import PagesView from '../views/PagesView'
 // import HomeView from '../views/HomeView'
-import AttractionListPage from '../pages/bonjour/AttractionListPage'
-import AttractionPage from '../pages/bonjour/AttractionPage'
 // import MovieView from '../views/MovieView'
 // import BookView from '../views/BookView'
 // import StatusView from '../views/StatusView'
@@ -14,7 +12,9 @@ import AttractionPage from '../pages/bonjour/AttractionPage'
 // import SearchView from '../views/SearchView'
 // import LoginView from '../views/LoginView'
 // import RegisterView from '../views/RegisterView'
-import Home from '../pages/Home/Home.vue'
+import Home from '../pages/Home/Home'
+import AttractionList from '../pages/AttractionList/AttractionList'
+import Attraction from '../pages/Attraction/Attraction'
 
 Vue.use(Router)
 
@@ -29,14 +29,14 @@ export default new Router({
       component: Home,
     },
     {
-      path: '/pages/attractionlist',
-      name: 'AttractionListPage',
-      component: AttractionListPage
+      path: '/attractionlist',
+      name: 'AttractionList',
+      component: AttractionList
     },
     {
-      path: '/pages/attraction/:id',
-      name: 'AttractionPage',
-      component: AttractionPage
+      path: '/attraction/:id',
+      name: 'Attraction',
+      component: Attraction
     },
     {
       path: '*',
