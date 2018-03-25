@@ -5,7 +5,7 @@ const state = {
 }
 const getters = {
     // 标签随机颜色属性
-    tagsColor(state) {
+    colorTags(state) {
         let colors = [
             'rgb(94, 174, 240)',
             "rgb(222, 224, 97)",

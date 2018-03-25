@@ -1,14 +1,14 @@
 <template>
   <div class="home-container">
     <search-bar></search-bar>
-    <bo-lists :lists="tagsColor"></bo-lists>
+    <bo-lists :lists="colorTags"></bo-lists>
   </div>
 </template>
 
 <script>
 import SearchBar from "@/components/SearchBar.vue";
 import BoLists from "@/components/BoLists.vue";
-import { mapState, mapGetters } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   name: "Home",
@@ -24,10 +24,7 @@ export default {
   methods: {},
   watch: {},
   computed: {
-    ...mapState({
-      homeLists: state => state.listsStore.lists
-    }),
-    ...mapGetters(["tagsColor"])
+    ...mapGetters(["colorTags"])
   },
   created() {
     this.$store.dispatch("getListsInfo");
