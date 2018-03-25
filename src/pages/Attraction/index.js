@@ -1,1 +1,2 @@
-export default "./Attraction";
+import Attraction from './Attraction';
+export default Attraction;

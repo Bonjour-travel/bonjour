@@ -1,24 +1,22 @@
 <template>
   <div id="app">
     <router-view class="view"></router-view>
-    <!-- <router-view class="view" name="subject"></router-view> -->
-    <!-- <router-view class="view" name="search"></router-view> -->
+    <footer-bar></footer-bar>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
+import FooterBar from "./components/FooterBar.vue";
 export default {
-  name: 'app',
-  created(){
-    // this.$store.dispatch('getLocation','da')
-    // console.log(this.$store.state.location)
-  }
-}
+  name: "app",
+  components: {
+    FooterBar
+  },
+  created() {}
+};
 </script>
 
 <style lang="scss">
-
 // Base setting and rest
 html {
   font-size: 62.5%;
@@ -28,7 +26,12 @@ a {
   text-decoration: none;
 }
 
-ul, li {
+ul,
+li {
   list-style: none;
+}
+
+body {
+  overflow-x: hidden;
 }
 </style>

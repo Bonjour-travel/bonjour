@@ -26,6 +26,15 @@ Vue.component(Button.name, Button);
 
 Vue.use(vueScrollBehavior, { router: router })
 
+Vue.prototype.$log = (msg)=>{
+    let timeLabel = new Date().toString().slice(15,24) + ' ';
+    if(Object.prototype.toString.call(msg) !== '[object String]'){
+        console.log(timeLabel)
+        console.log(msg)
+    }else{
+        console.log(timeLabel + msg)
+    }
+}
 // 消除手机端点击300ms延迟
 // fastclick.attach(document.body);
 

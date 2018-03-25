@@ -1,46 +1,40 @@
 <template>
   <div class="home-container">
     <search-bar></search-bar>
-    <bo-lists :lists="homeLists"></bo-lists>
+    <bo-lists :lists="colorTags"></bo-lists>
   </div>
 </template>
 
 <script>
-import SearchBar from '@/components/SearchBar.vue'
-import BoLists from '@/components/BoLists.vue'
-import {mapState} from 'Vuex'
+import SearchBar from "@/components/SearchBar.vue";
+import BoLists from "@/components/BoLists.vue";
+import { mapGetters } from "vuex";
 
 export default {
-  name:'Home',
-  components:{
-      SearchBar,
-      BoLists,
+  name: "Home",
+  components: {
+    SearchBar,
+    BoLists
   },
-  data(){
-      return{
-          datas:[],
-      }
+  data() {
+    return {
+      datas: []
+    };
   },
-  methods:{
-
+  methods: {},
+  watch: {},
+  computed: {
+    ...mapGetters(["colorTags"])
   },
-  watch:{
-
-  },
-  computed:{
-      ...mapState({
-          homeLists:state=>state.listsStore.lists
-      })
-  },
-  created(){
-      this.$store.dispatch('getListsInfo')
+  created() {
+    this.$store.dispatch("getListsInfo");
   }
-}
+};
 </script>
 
-<style lang="less" scoped>
-.home-container{
-    background-attachment: fixed;
-    // background-color: aliceblue;
+<style lang="scss" scoped>
+.home-container {
+  background-attachment: fixed;
+  // background-color: aliceblue;
 }
 </style>

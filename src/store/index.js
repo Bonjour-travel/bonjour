@@ -12,13 +12,15 @@ import Vuex from 'vuex'
 import listsStore from './modules/listsStore'
 import attraction from './modules/attraction'
 import weather from './modules/weather'
+import searchInfo from './modules/searchInfo'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-    modules: {
-        listsStore,
-        attraction,
-        weather
-    }
+        modules: {
+                listsStore,
+                attraction,
+                weather,
+                searchInfo
+        }
 })
