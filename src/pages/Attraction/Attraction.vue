@@ -1,22 +1,22 @@
 <template>
   <div class="detail-view">
     <template v-if="!showLoading">
+      
       <div class="info">
         <h2>{{attractionItem.name}}</h2>
-        <div class="poster">
-          <!-- <img :src="attractionItem.image_hlarge" alt=""> -->
-        </div>
+        <scroller></scroller>
+        <!-- <div class="poster">
+          <img :src="attractionItem.image_hlarge" alt="">
+        </div> -->
         <tags v-if="attractionItem.tags" :items="attractionItem.tags"></tags>
         <div class="detail">
-          <p><b>耍法:&nbsp;</b>
+          <p><b>耍法:&nbsp;&nbsp;</b>
             <ul>
-              <li v-for="item in attractionItem.plays">{{ item }},&nbsp;</li>
+              <li v-for="item in attractionItem.plays">{{ item }}&nbsp;&nbsp;</li>
             </ul>
           </p>
         </div>
         <br />
-        <hr />
-        <h2>增加天气组件</h2>
         <weather :lng="attractionItem.longitude" :lat="attractionItem.latitude"></weather>
         <!-- <p>维度：{{ attractionItem.latitude}}</p>
         <p>经度：{{ attractionItem.longitude}}</p> -->
@@ -24,51 +24,53 @@
         <br />
       </div>
     </template>
-    <!-- <loading v-show="showLoading"></loading> -->
+    <loading v-show="showLoading"></loading>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import Scroller from '@/components/Scroller'
-import Tags from '@/components/Tags'
-import MapGd from '@/components/MapGd'
-import Weather from '@/components/Weather'
-// import Loading from '../../components/Loading'
+import { mapState } from "vuex";
+import Scroller from "@/components/Scroller";
+import Tags from "@/components/Tags";
+import MapGd from "@/components/MapGd";
+import Weather from "@/components/Weather";
+import Loading from "@/components/Loading";
 
 export default {
-  name: 'attraction',
-  components: { Scroller, Tags, MapGd, Weather },
-  data () {
+  name: "attraction",
+  components: { Scroller, Tags, MapGd, Weather, Loading },
+  data() {
     return {
-      showLoading: true,
-    }
+      showLoading: true
+    };
   },
-//   filters: {
-//     toArray (value) {
-//       return value.split(',')
-//     }
-//   },
+  //   filters: {
+  //     toArray (value) {
+  //       return value.split(',')
+  //     }
+  //   },
   computed: {
     // Getting Vuex State from store/modules/attraction
     ...mapState({
       attractionItem: state => state.attraction.attractionItem
-    }),
+    })
   },
-  created () {
+  created() {
     // Getting route params
-    const id = this.$route.params.id
+    const id = this.$route.params.id;
 
     // Dispatching getSingleEvent
-    this.$store.dispatch({
-      type: 'getSingleEvent',
-      id: id
-    }).then(res => {
-      // Success handle
-      this.showLoading = false
-    })
+    this.$store
+      .dispatch({
+        type: "getSingleEvent",
+        id: id
+      })
+      .then(res => {
+        // Success handle
+        this.showLoading = false;
+      });
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -89,7 +91,7 @@ export default {
     line-height: 1.8rem;
     font-size: 1.2rem;
     color: #fff;
-    background-color: #FF8263;
+    background-color: #ff8263;
     border-radius: 0.2rem;
   }
 
@@ -122,7 +124,7 @@ export default {
   }
 
   b {
-      float: left;
+    float: left;
   }
 
   ul {
@@ -131,7 +133,7 @@ export default {
     display: inline;
 
     li {
-        float: left;
+      float: left;
     }
   }
 }
@@ -148,7 +150,7 @@ export default {
 }
 
 .amap-wrapper {
-//   width: 90%;
+  //   width: 90%;
   height: 300px;
 }
 </style>

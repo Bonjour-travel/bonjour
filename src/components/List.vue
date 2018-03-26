@@ -8,14 +8,14 @@
           <img src='../assets/pic/bon-1.png'>
           <!-- <img :src="item.image_hlarge" alt="cover"> -->
           <h3>{{item.name}}</h3>
-          <p><b>看点:&nbsp;</b>
+          <p><b>看点:&nbsp;&nbsp;</b>
             <ul>
-              <li v-for="item in item.tags">{{ item }},&nbsp;</li>
+              <li v-for="item in item.tags">{{ item }}&nbsp;&nbsp;</li>
             </ul>
           </p>
-          <p><b>耍法:&nbsp;</b>
+          <p><b>耍法:&nbsp;&nbsp;</b>
             <ul>
-              <li v-for="item in item.plays">{{ item }},&nbsp;</li>
+              <li v-for="item in item.plays">{{ item }}&nbsp;&nbsp;</li>
             </ul>
           </p>
           <!-- <p>{{item.intro | subStr}}</p> -->
@@ -37,28 +37,27 @@
 
 <script>
 export default {
-  name: 'list',
+  name: "list",
   props: {
     mold: {
       type: String,
-      default: 'basic'
+      default: "basic"
     },
     items: {
       type: Array,
       required: true
     }
   },
-  data () {
-    return {
-    }
+  data() {
+    return {};
   },
   filters: {
-    subStr: function (value) {
-      let newVal = value.replace(/<.*?>/g, '')
-      return newVal.slice(0, 30)
+    subStr: function(value) {
+      let newVal = value.replace(/<.*?>/g, "");
+      return newVal.slice(0, 30);
     }
   }
-}
+};
 </script>
 
 <style lang='scss' scoped>
@@ -91,7 +90,7 @@ export default {
       font-size: 1.2rem;
       overflow: hidden;
 
-      b{
+      b {
         color: #555;
         float: left;
       }
@@ -108,7 +107,7 @@ export default {
       display: inline;
 
       li {
-      float: left;
+        float: left;
       }
     }
   }
@@ -119,7 +118,7 @@ export default {
     top: 0;
     width: 100%;
     height: 0.1rem;
-    content: '';
+    content: "";
     background: #e3e3e3;
   }
 
