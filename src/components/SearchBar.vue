@@ -1,7 +1,7 @@
 <template>
   <div class="search-bar" @click="toPageSearch">
       <div class="search-icon"></div>
-      <input ref="search" class="search-input" type="text" placeholder="Welcome to Bonjour!">
+      <input ref="search" class="search-input" type="text" placeholder="输入搜索内容">
 
   </div>
 </template>

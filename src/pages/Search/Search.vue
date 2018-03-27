@@ -2,20 +2,31 @@
   <div class="search-container">
     <search-bar></search-bar>
     <div class="search-index">
-      <div class="history">
-        <h1>历史记录</h1>
-        <div v-for="item in history"></div>
+      <div class="location">
+        <h2>当前位置：{{local}}</h2>
       </div>
-      <div class="hotTags">
-        <h1>热门标签</h1> 
-        <div v-for="item in searchTags">
-          {{item.name}}
+      <div class="block history">
+        <h1>历史记录</h1>
+        <div class="text">
+          <div class="box" v-for="item in searchHistory">
+            {{item.content}}
+          </div>
         </div>
       </div>
-      <div class="hotPlace">
+      <div class="block hotTags">
+        <h1>热门标签</h1> 
+        <div class="text">
+          <div class="box" v-for="item in searchTags">
+          {{item.name}}
+          </div>
+        </div>
+      </div>
+      <div class="block hotPlace">
         <h1>热门景点</h1>
-        <div v-for="item in searchPlace">
-          {{item.name}}          
+        <div class="text">
+           <div class="box" v-for="item in searchPlace">
+            {{item.name}}          
+          </div>
         </div>
       </div>
     </div>
@@ -43,12 +54,16 @@ export default {
   computed: {
     ...mapState({
       searchTags: state => state.searchInfo.searchTags,
-      searchPlace: state => state.searchInfo.searchPlace
+      searchPlace: state => state.searchInfo.searchPlace,
+      searchHistory: state => state.searchInfo.searchHistory,
+      local: state => state.userInfo.local,
+      ip: state => state.userInfo.ip
     })
   },
   created() {
     this.$store.dispatch("getHotTags");
     this.$store.dispatch("getHotPlace");
+    this.$store.dispatch("getHistory");
   }
 };
 </script>
@@ -57,5 +72,23 @@ export default {
 .search-container {
   background-attachment: fixed;
   // background-color: aliceblue;
+}
+.search-index {
+  margin: 0 20px;
+  .block {
+    padding: 10px 0;
+    .text {
+      display: flex;
+      flex-wrap: wrap;
+      .box {
+        font-size: 150%;
+        padding: 5px;
+        margin: 5px;
+        color: rgb(82, 77, 77);
+        background-color: rgb(236, 182, 120);
+        border-radius: 5px;
+      }
+    }
+  }
 }
 </style>

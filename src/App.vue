@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view class="view"></router-view>
-    <footer-bar></footer-bar>
+    <!-- <footer-bar></footer-bar> -->
   </div>
 </template>
 
@@ -12,7 +12,9 @@ export default {
   components: {
     FooterBar
   },
-  created() {}
+  created() {
+    this.$store.dispatch("getLocation");
+  }
 };
 </script>
 
