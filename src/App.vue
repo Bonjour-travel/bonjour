@@ -23,6 +23,16 @@ export default {
 html {
   font-size: 62.5%;
 }
+
+a {
+  text-decoration: none;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
 body {
   overflow-x: hidden;
 }
