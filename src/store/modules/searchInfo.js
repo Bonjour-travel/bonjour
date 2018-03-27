@@ -3,7 +3,8 @@ import axios from "axios";
 const state = {
   searchPlace: [],
   searchTags: [],
-  searchHistory: []
+  searchHistory: [],
+  searchResult: {}
 }
 
 const actions = {
@@ -21,6 +22,14 @@ const actions = {
     axios.get('/api/history').then((res) => {
       commit("getHistory", res.data);
     })
+  },
+  getSearchResult({ commit }, payload) {
+    axios.get('/api/search?' + payload).then(res => {
+      commit("getSearchResult", res.data)
+    })
+  },
+  emptySearchResult({ commit }, payload) {
+    commit("emptySearchResult")
   }
 }
 
@@ -33,6 +42,12 @@ const mutations = {
   },
   getHistory(state, data) {
     state.searchHistory = data;
+  },
+  getSearchResult(state, data) {
+    state.searchResult = data;
+  },
+  emptySearchResult(state, data) {
+    state.searchResult = {};
   }
 }
 

@@ -5,7 +5,15 @@
       <div class="location">
         <h2>当前位置：{{local}}</h2>
       </div>
-      <div class="block history">
+      <div v-if="Object.keys(searchResult).length" class="block result">
+        <h2>您正在查找的是不是：</h2>
+        <div class="text">
+          <div class="box" v-for="item in searchResult.place_arr">
+            {{item.place}}
+          </div>
+        </div>
+      </div>
+      <div v-else class="block history">
         <h1>历史记录</h1>
         <div class="text">
           <div class="box" v-for="item in searchHistory">
@@ -56,6 +64,7 @@ export default {
       searchTags: state => state.searchInfo.searchTags,
       searchPlace: state => state.searchInfo.searchPlace,
       searchHistory: state => state.searchInfo.searchHistory,
+      searchResult: state => state.searchInfo.searchResult,
       local: state => state.userInfo.local,
       ip: state => state.userInfo.ip
     })

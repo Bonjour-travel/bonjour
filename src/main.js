@@ -8,33 +8,37 @@ import vueScrollBehavior from 'vue-scroll-behavior'
 import fastclick from 'fastclick'
 import 'normalize.css'
 import { Button } from 'mint-ui';
-import 'mint-ui/lib/style.css'
+import 'mint-ui/lib/style.css';
+
+import axios from "axios";
 import VueAMap from 'vue-amap';
 Vue.use(VueAMap);
 
 // 初始化vue-amap
 VueAMap.initAMapApiLoader({
-  // 高德地图的key
-  key: 'a72252c4069ca54c27ebe4aec1bd1075',
-  // 插件集合
-  plugin: ['AMap.Autocomplete', 'AMap.PlaceSearch', 'AMap.Scale', 'AMap.OverView', 'AMap.ToolBar', 'AMap.MapType', 'AMap.PolyEditor', 'AMap.CircleEditor'],
-  // 高德 sdk 版本，默认为 1.4.4
-  v: '1.4.5'
+    // 高德地图的key
+    key: 'a72252c4069ca54c27ebe4aec1bd1075',
+    // 插件集合
+    plugin: ['AMap.Autocomplete', 'AMap.PlaceSearch', 'AMap.Scale', 'AMap.OverView', 'AMap.ToolBar', 'AMap.MapType', 'AMap.PolyEditor', 'AMap.CircleEditor'],
+    // 高德 sdk 版本，默认为 1.4.4
+    v: '1.4.5'
 });
 
 Vue.component(Button.name, Button);
 
 Vue.use(vueScrollBehavior, { router: router })
 
-Vue.prototype.$log = (msg)=>{
-    let timeLabel = new Date().toString().slice(15,24) + ' ';
-    if(Object.prototype.toString.call(msg) !== '[object String]'){
+Vue.prototype.$log = (msg) => {
+    let timeLabel = new Date().toString().slice(15, 24) + ' ';
+    if (Object.prototype.toString.call(msg) !== '[object String]') {
         console.log(timeLabel)
         console.log(msg)
-    }else{
+    } else {
         console.log(timeLabel + msg)
     }
 }
+
+Vue.prototype.$http = axios;
 // 消除手机端点击300ms延迟
 // fastclick.attach(document.body);
 

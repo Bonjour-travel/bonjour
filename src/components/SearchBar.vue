@@ -1,16 +1,24 @@
 <template>
   <div class="search-bar" @click="toPageSearch">
-      <div class="search-icon"></div>
-      <input ref="search" class="search-input" type="text" placeholder="输入搜索内容">
+      <div v-if="!isSearchPage" class="search-icon"></div>
+      <div v-else class="back-icon">
+        <van-icon name="arrow-left" @click="backIconClick"/>
+      </div>
+      <input @keyup="doSearch" ref="search" class="search-input" type="text" placeholder="输入搜索内容">
 
   </div>
 </template>
 
 <script>
 import Vue from "Vue";
+import { Icon } from "vant";
 
+Vue.use(Icon);
 export default {
   name: "SearchBar",
+  components: {
+    vanIcon: Icon
+  },
   data() {
     return {
       inputFocusState: false
@@ -19,17 +27,33 @@ export default {
   methods: {
     // 首页点击则跳转到search页
     toPageSearch() {
-      if (/search/.test(window.location.hash)) {
+      if (this.isSearchPage) {
         return false;
       } else {
         this.$router.push({ name: "Search" });
+      }
+    },
+    backIconClick() {
+      this.$router.push({ name: "Home" });
+    },
+    doSearch(e) {
+      let searchWords = e.target.value;
+      if (searchWords) {
+        this.$store.dispatch("getSearchResult", searchWords);
+      } else {
+        this.$store.dispatch("emptySearchResult", searchWords);
       }
     }
   },
   mounted() {
     // search页输入框自动获取光标
-    if (/search/.test(window.location.hash)) {
+    if (this.isSearchPage) {
       this.$refs.search.focus();
+    }
+  },
+  computed: {
+    isSearchPage: function() {
+      return /search/.test(window.location.hash);
     }
   },
   directives: {
@@ -58,6 +82,14 @@ export default {
     height: 40px;
     width: 10%;
     margin-right: 10px;
+  }
+  .back-icon {
+    font-size: 170%;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 5px;
+    padding-left: 10px;
+    width: 10%;
   }
   .search-input {
     border: 1px solid gainsboro;
