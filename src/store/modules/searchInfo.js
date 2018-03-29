@@ -4,7 +4,8 @@ const state = {
   searchPlace: [],
   searchTags: [],
   searchHistory: [],
-  searchResult: {}
+  searchResult: {},
+  selectDay: ''
 }
 
 const actions = {
@@ -23,8 +24,10 @@ const actions = {
       commit("getHistory", res.data);
     })
   },
-  getSearchResult({ commit }, payload) {
-    axios.get('/api/search?' + payload).then(res => {
+  getSearchResult({ state, commit, rootState }, payload) {
+    let query = ['key=' + payload, 'day=' + selectDay, 'place=' + rootState.userInfo.local].join('&')
+    console.log(rootState.userInfo.local)
+    axios.get('/api/search?' + query).then(res => {
       commit("getSearchResult", res.data)
     })
   },

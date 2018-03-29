@@ -1,5 +1,6 @@
 <template>
   <div class="search-bar" @click="toPageSearch">
+    <!-- 根据是否进入search页面展示不同icon -->
       <div v-if="!isSearchPage" class="search-icon"></div>
       <div v-else class="back-icon">
         <van-icon name="arrow-left" @click="backIconClick"/>
@@ -52,7 +53,7 @@ export default {
     }
   },
   computed: {
-    isSearchPage: function() {
+    isSearchPage() {
       return /search/.test(window.location.hash);
     }
   },

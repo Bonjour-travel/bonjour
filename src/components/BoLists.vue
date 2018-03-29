@@ -64,25 +64,25 @@ export default {
   display: flex;
   flex-wrap: wrap;
   .list-box {
-    height: 200px;
+    height: 250px;
     width: 80%;
     margin: 5px auto;
     .list-pic {
-      height: 150px;
-      border-radius: 15px;
+      height: 200px;
+      border-radius: 8px;
       background-size: cover;
       display: flex;
       align-items: flex-end;
-      box-shadow: 1px 3px 20px;
+      box-shadow: 3px 5px 15px;
       .list-cover {
         color: #fff;
         height: 30px;
         line-height: 30px;
-        font-size: 120%;
+        font-size: 150%;
         padding: 0 10px;
         background-color: rgba(0, 0, 0, 0.473);
-        border-bottom-left-radius: 12px;
-        border-bottom-right-radius: 12px;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
         width: 100%;
       }
     }

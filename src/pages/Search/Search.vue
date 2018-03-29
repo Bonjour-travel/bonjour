@@ -2,11 +2,18 @@
   <div class="search-container">
     <search-bar></search-bar>
     <div class="search-index">
-      <div class="location">
-        <h2>当前位置：{{local}}</h2>
+      <div class="block select-bar">
+        <div class="to-place">
+          <h2>目的地：{{local | splitCity}}</h2>
+        </div>
+        <div class="to-day">
+          <h2>出行天数：</h2>
+          <van-stepper v-model="day" @change="selectDayChange"/>
+        </div>
       </div>
+      <!-- 根据是否有搜索结果展示不同视图 -->
       <div v-if="Object.keys(searchResult).length" class="block result">
-        <h2>您正在查找的是不是：</h2>
+        <h2>您是否正在查找：</h2>
         <div class="text">
           <div class="box" v-for="item in searchResult.place_arr">
             {{item.place}}
@@ -14,7 +21,7 @@
         </div>
       </div>
       <div v-else class="block history">
-        <h1>历史记录</h1>
+        <h2>您的查询记录：</h2>
         <div class="text">
           <div class="box" v-for="item in searchHistory">
             {{item.content}}
@@ -43,22 +50,34 @@
 
 <script>
 import SearchBar from "@/components/SearchBar.vue";
+import Vue from "vue";
 import { mapState } from "vuex";
+import { Stepper } from "vant";
+Vue.use(Stepper);
 
 export default {
   name: "Search",
   components: {
-    SearchBar
+    SearchBar,
+    VanStepper: Stepper
   },
   data() {
     return {
       history: [],
       tags: [],
-      place: []
+      place: [],
+      day: ""
     };
   },
-  methods: {},
+  methods: {
+    selectDayChange() {}
+  },
   watch: {},
+  filters: {
+    splitCity(value) {
+      return value.split("省")[1];
+    }
+  },
   computed: {
     ...mapState({
       searchTags: state => state.searchInfo.searchTags,
@@ -84,6 +103,18 @@ export default {
 }
 .search-index {
   margin: 0 20px;
+  .select-bar {
+    display: flex;
+    justify-content: space-between;
+    .to-place {
+      margin-right: 5px;
+    }
+    .to-day {
+      line-height: 8px;
+      display: flex;
+      margin: 5px;
+    }
+  }
   .block {
     padding: 10px 0;
     .text {
