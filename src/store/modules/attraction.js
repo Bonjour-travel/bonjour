@@ -25,22 +25,22 @@ const actions = {
      */
     loadMore({ commit, state }) {
         return new Promise((resolve, reject) => {
-            axios.get('/api/bonjour')
-            .then((res) => {
-                commit('loadMore', res.data.data)
-                resolve(res.data.data)
-            })
-                // .get("http://182.254.227.188:45678/v1/api/attractions/list/")
-                // .get('https://api.douban.com/v2/event/list?loc=108288&start=' +
-                //     state.skip + '&count=3')
-                // .then((err, res) => {
-                //     console.log(res)
-                //     // console.log(res.data.data)
-                //     if (!err) {
-                //         commit('loadMore', res.data.data)
-                //         resolve(res)
-                //     }
-                // })
+            axios.get('/mock/bonjour')
+                .then((res) => {
+                    commit('loadMore', res.data.data)
+                    resolve(res.data.data)
+                })
+            // .get("http://182.254.227.188:45678/v1/api/attractions/list/")
+            // .get('https://api.douban.com/v2/event/list?loc=108288&start=' +
+            //     state.skip + '&count=3')
+            // .then((err, res) => {
+            //     console.log(res)
+            //     // console.log(res.data.data)
+            //     if (!err) {
+            //         commit('loadMore', res.data.data)
+            //         resolve(res)
+            //     }
+            // })
         })
     },
 
@@ -50,22 +50,22 @@ const actions = {
      */
     getSingleEvent({ commit, state }, payload) {
         return new Promise((resolve, reject) => {
-            axios.get('/api/bonjour' + payload.id)
-            .then((res) => {
-                commit('getSingleEvent', res.data)
-                resolve(res.data)
-            })
-                // .get("http://182.254.227.188:45678/v1/api/attractions/"  + payload.id)
-                // .get('https://api.douban.com/v2/event/' + payload.id)
-                // .then((err, res) => {
-                //     if (!err) {
-                //         commit({
-                //             type: 'getSingleEvent',
-                //             res: res.body
-                //         })
-                //         resolve(res)
-                //     }
-                // })
+            axios.get('/mock/bonjour' + payload.id)
+                .then((res) => {
+                    commit('getSingleEvent', res.data)
+                    resolve(res.data)
+                })
+            // .get("http://182.254.227.188:45678/v1/api/attractions/"  + payload.id)
+            // .get('https://api.douban.com/v2/event/' + payload.id)
+            // .then((err, res) => {
+            //     if (!err) {
+            //         commit({
+            //             type: 'getSingleEvent',
+            //             res: res.body
+            //         })
+            //         resolve(res)
+            //     }
+            // })
         })
     }
 }
