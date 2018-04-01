@@ -14,15 +14,16 @@ require("swiper/dist/css/swiper.css");
 export default {
   name: "scroller",
   components: { swiper, swiperSlide },
+  props: ["slides"],
   data() {
     return {
-      slides: [
-        "../static/pic/bon-1.png",
-        "../static/pic/bon-2.png",
-        "../static/pic/bon-3.png",
-        "../static/pic/bon-4.png",
-        "../static/pic/bon-5.png"
-      ],
+      // slides: [
+      //   "../static/pic/bon-1.png",
+      //   "../static/pic/bon-2.png",
+      //   "../static/pic/bon-3.png",
+      //   "../static/pic/bon-4.png",
+      //   "../static/pic/bon-5.png"
+      // ],
       swiperOption: {
         debugger: true,
         slidesPerView: "auto",

@@ -4,7 +4,7 @@
       
       <div class="info">
         <h2>{{attractionItem.name}}</h2>
-        <scroller></scroller>
+        <scroller :slides="slides"></scroller>
         <!-- <div class="poster">
           <img :src="attractionItem.image_hlarge" alt="">
         </div> -->
@@ -16,10 +16,16 @@
             </ul>
           </p>
         </div>
+        <div class="detail">
+          <p><b>Tips:&nbsp;&nbsp;</b>
+            <ul>
+              <li v-for="item in attractionItem.plays">{{ item }}&nbsp;&nbsp;</li>
+            </ul>
+          </p>
+        </div>
         <br />
+
         <weather :lng="attractionItem.longitude" :lat="attractionItem.latitude"></weather>
-        <!-- <p>维度：{{ attractionItem.latitude}}</p>
-        <p>经度：{{ attractionItem.longitude}}</p> -->
         <map-gd :lng="attractionItem.longitude" :lat="attractionItem.latitude"></map-gd>
         <br />
       </div>
@@ -29,7 +35,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapGetters } from "vuex";
 import Scroller from "@/components/Scroller";
 import Tags from "@/components/Tags";
 import MapGd from "@/components/MapGd";
@@ -53,12 +59,12 @@ export default {
     // Getting Vuex State from store/modules/attraction
     ...mapState({
       attractionItem: state => state.attraction.attractionItem
-    })
+    }),
+    ...mapGetters(["slides"])
   },
   created() {
     // Getting route params
     const id = this.$route.params.id;
-
     // Dispatching getSingleEvent
     this.$store
       .dispatch({
