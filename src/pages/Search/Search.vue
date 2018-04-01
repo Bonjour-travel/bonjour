@@ -32,7 +32,7 @@
         <h1>热门标签</h1> 
         <div class="text">
           <div class="box" v-for="item in hotTags">
-          {{item.name}}
+          {{item}}
           </div>
         </div>
       </div>

@@ -17,7 +17,7 @@ const state = {
 
 const actions = {
   getHotTags({ commit }, payload) {
-    axios.get('/mock/hottag').then((res) => {
+    axios.get('/api/tags').then((res) => {
       commit(SAVE_HOT_TAGS, res.data);
     })
   },
