@@ -7,6 +7,19 @@ const state = {
     attractionItem: {}
 }
 
+const getters = {
+    slides(state) {
+        let filepaths = state.attractionItem.pic
+        let slides = []
+        filepaths.map(data => {
+            slides.push(
+                data.filepath
+            );
+        });
+        return slides;
+    }
+}
+
 const mutations = {
     loadMore(state, payload) {
         state.skip += 3
@@ -72,6 +85,7 @@ const actions = {
 
 export default {
     state,
+    getters,
     mutations,
     actions
 }
