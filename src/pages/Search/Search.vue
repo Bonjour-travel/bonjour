@@ -8,7 +8,7 @@
         </div>
         <div class="to-day">
           <h2>出行天数：</h2>
-          <van-stepper v-model="day" @change="selectDayChange"/>
+          <van-stepper @change="SearchDayChange"/>
         </div>
       </div>
       <!-- 根据是否有搜索结果展示不同视图 -->
@@ -31,7 +31,7 @@
       <div class="block hotTags">
         <h1>热门标签</h1> 
         <div class="text">
-          <div class="box" v-for="item in searchTags">
+          <div class="box" v-for="item in hotTags">
           {{item.name}}
           </div>
         </div>
@@ -39,7 +39,7 @@
       <div class="block hotPlace">
         <h1>热门景点</h1>
         <div class="text">
-           <div class="box" v-for="item in searchPlace">
+           <div class="box" v-for="item in hotPlace">
             {{item.name}}          
           </div>
         </div>
@@ -62,15 +62,13 @@ export default {
     VanStepper: Stepper
   },
   data() {
-    return {
-      history: [],
-      tags: [],
-      place: [],
-      day: ""
-    };
+    return {};
   },
   methods: {
-    selectDayChange() {}
+    // 组件的默认参数为input的value
+    SearchDayChange(day) {
+      this.$store.dispatch("setSearchDay", day);
+    }
   },
   watch: {},
   filters: {
@@ -80,10 +78,11 @@ export default {
   },
   computed: {
     ...mapState({
-      searchTags: state => state.searchInfo.searchTags,
-      searchPlace: state => state.searchInfo.searchPlace,
+      hotTags: state => state.searchInfo.hotTags,
+      hotPlace: state => state.searchInfo.hotPlace,
       searchHistory: state => state.searchInfo.searchHistory,
       searchResult: state => state.searchInfo.searchResult,
+      SearchDay: state => state.searchInfo.SearchDay,
       local: state => state.userInfo.local,
       ip: state => state.userInfo.ip
     })

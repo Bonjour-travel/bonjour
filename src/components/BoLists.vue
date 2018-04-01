@@ -1,6 +1,6 @@
 <template>
   <div class="bo-lists" ref="bo-lists">
-    <div class="list-box" v-for="list in lists">
+    <div class="list-box" v-for="list in lists" @click="routerToArraction(list.id)">
       <div class="list-pic" :style="{backgroundImage:'url('+list.pic+')'}">
         <div class="list-cover">
           {{list.desc}}
@@ -33,6 +33,9 @@ export default {
     this.onScrollGet();
   },
   methods: {
+    routerToArraction(id) {
+      this.$router.push({ name: "Attraction", params: { id } });
+    },
     onScrollGet() {
       let fetchState = true;
       if (window && document.documentElement) {
@@ -73,7 +76,8 @@ export default {
       background-size: cover;
       display: flex;
       align-items: flex-end;
-      box-shadow: 3px 5px 15px;
+      // box-shadow: 3px 5px 15px;
+      filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.637));
       .list-cover {
         color: #fff;
         height: 30px;

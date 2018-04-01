@@ -28,8 +28,8 @@ module.exports = {
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
         proxyTable: {
-            '/getLocation': {
-                target: 'http://api.map.baidu.com/location/ip?ak=bb19B8eyQrurELFYCDc8XMo0zadlXhfn&coor=bd09ll',
+            '/api': {
+                target: 'http://182.254.227.188:45678/v1',
                 changeOrigin: true,
             }
         },

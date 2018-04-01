@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { ADD_LISTS_INFO } from '../mutation-types';
 const state = {
     //首页Lists信息
     lists: []
@@ -42,26 +43,20 @@ const actions = {
     // 获取列表信息
     getListsInfo({ commit }, payload) {
         return new Promise((reslove, reject) => {
-            axios.get('/api/lists').then((res) => {
-                //模拟分页
+            axios.get('/mock/lists').then((res) => {
+                //模拟分页 默认5个
                 let datas = res.data.slice(0, 5);
-                commit('getListsInfo', datas);
+                commit(ADD_LISTS_INFO, datas);
                 reslove(datas);
             })
         })
-    },
-    addListsInfo({ commit }, payload) {
-        commit('addListsInfo', payload);
     }
 }
 
 const mutations = {
-    getListsInfo(state, data) {
+    [ADD_LISTS_INFO](state, data) {
         //concat,filter,slice这些非变异函数不会改变原数组，所以不能用state.lists.concat这种写法
         state.lists = state.lists.concat(data);
-    },
-    addListsInfo(state, data) {
-        state.lists.push(data);
     }
 }
 

@@ -1,56 +1,68 @@
 import axios from "axios";
-
+import {
+  SAVE_HOT_TAGS,
+  SAVE_HOT_PLACE,
+  SAVE_HISTORY,
+  SAVE_SEARCH_RESULT,
+  EMPTY_SEARCH_RESULT,
+  SAVE_SEARCH_DAY,
+} from "../mutation-types";
 const state = {
-  searchPlace: [],
-  searchTags: [],
+  hotPlace: [],
+  hotTags: [],
   searchHistory: [],
   searchResult: {},
-  selectDay: ''
+  SearchDay: ''
 }
 
 const actions = {
   getHotTags({ commit }, payload) {
-    axios.get('/api/hottag').then((res) => {
-      commit("getHotTags", res.data);
+    axios.get('/mock/hottag').then((res) => {
+      commit(SAVE_HOT_TAGS, res.data);
     })
   },
   getHotPlace({ commit }, payload) {
-    axios.get('/api/hotplace').then((res) => {
-      commit("getHotPlace", res.data);
+    axios.get('/mock/hotplace').then((res) => {
+      commit(SAVE_HOT_PLACE, res.data);
     })
   },
   getHistory({ commit }, payload) {
-    axios.get('/api/history').then((res) => {
-      commit("getHistory", res.data);
+    axios.get('/mock/history').then((res) => {
+      commit(SAVE_HISTORY, res.data);
     })
   },
   getSearchResult({ state, commit, rootState }, payload) {
-    let query = ['key=' + payload, 'day=' + selectDay, 'place=' + rootState.userInfo.local].join('&')
-    console.log(rootState.userInfo.local)
+    let query = ['key=' + payload, 'day=' + state.SearchDay, 'place=' + rootState.userInfo.local].join('&')
     axios.get('/api/search?' + query).then(res => {
-      commit("getSearchResult", res.data)
+      commit(SAVE_SEARCH_RESULT, res.data)
     })
   },
   emptySearchResult({ commit }, payload) {
-    commit("emptySearchResult")
+    commit(EMPTY_SEARCH_RESULT)
+  },
+  setSearchDay({ commit }, payload) {
+    commit(SAVE_SEARCH_DAY, payload);
   }
 }
 
 const mutations = {
-  getHotTags(state, data) {
-    state.searchTags = data;
+  [SAVE_HOT_TAGS](state, data) {
+    state.hotTags = data;
   },
-  getHotPlace(state, data) {
-    state.searchPlace = data;
+  [SAVE_HOT_PLACE](state, data) {
+    state.hotPlace = data;
   },
-  getHistory(state, data) {
+  [SAVE_HISTORY](state, data) {
     state.searchHistory = data;
   },
-  getSearchResult(state, data) {
+  [SAVE_SEARCH_RESULT](state, data) {
     state.searchResult = data;
   },
-  emptySearchResult(state, data) {
+  [EMPTY_SEARCH_RESULT](state, data) {
     state.searchResult = {};
+  },
+  [SAVE_SEARCH_DAY](state, data) {
+    state.SearchDay = data;
   }
 }
 

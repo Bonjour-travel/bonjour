@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { SAVE_LOCATION } from '../mutation-types';
 const state = {
   ip: "",
   local: ""
@@ -6,12 +7,12 @@ const state = {
 
 const actions = {
   getLocation({ commit }, data) {
-    commit('getLocation')
+    commit(SAVE_LOCATION)
   }
 }
 
 const mutations = {
-  getLocation(state, data) {
+  [SAVE_LOCATION](state, data) {
     state.ip = returnCitySN["cip"];
     state.local = returnCitySN["cname"];
   }
