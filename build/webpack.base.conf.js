@@ -3,7 +3,7 @@ var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
 
-function resolve (dir) {
+function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
@@ -19,6 +19,10 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
+    // 快速定位到所需模块，不做额外的查询工作
+    // modules: [
+    //   path.resolve(__dirname, 'node_modules')
+    // ],
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.common.js',
