@@ -11,7 +11,7 @@
     "test": "npm run lint",
     "deploy": "gh-pages -d dist"
   },
-  "precommit": [
+  "_comment:precommit": [
     "dev"
   ],
   "dependencies": {
