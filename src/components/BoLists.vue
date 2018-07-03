@@ -67,11 +67,11 @@ export default {
   display: flex;
   flex-wrap: wrap;
   .list-box {
-    height: 250px;
-    width: 80%;
+    height: 200px;
+    width: 45%;
     margin: 5px auto;
     .list-pic {
-      height: 200px;
+      height: 150px;
       border-radius: 8px;
       background-size: cover;
       display: flex;

@@ -44,8 +44,8 @@ const actions = {
     getListsInfo({ commit }, payload) {
         return new Promise((reslove, reject) => {
             axios.get('/mock/lists').then((res) => {
-                //模拟分页 默认5个
-                let datas = res.data.slice(0, 5);
+                //模拟分页 默认6个
+                let datas = res.data.slice(0, 6);
                 commit(ADD_LISTS_INFO, datas);
                 reslove(datas);
             })

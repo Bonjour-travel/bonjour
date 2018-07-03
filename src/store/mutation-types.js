@@ -19,4 +19,6 @@ module.exports = {
   //userInfo
   // 保存用户本地信息
   SAVE_LOCATION: 'SAVE_LOCATION',
+
+
 }
