@@ -6,6 +6,7 @@ import attraction from './modules/attraction'
 import weather from './modules/weather'
 import searchInfo from './modules/searchInfo'
 import userInfo from './modules/userInfo'
+import chatbot from './modules/chatbot'
 
 Vue.use(Vuex)
 
@@ -15,6 +16,7 @@ export default new Vuex.Store({
         listsStore,
         attraction,
         weather,
-        searchInfo
+        searchInfo,
+        chatbot
     }
 })

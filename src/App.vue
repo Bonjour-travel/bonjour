@@ -36,4 +36,16 @@ li {
 body {
   overflow-x: hidden;
 }
+
+.clear {
+  display: inline-block;
+  &:after {
+    display: block;
+    content: ".";
+    height: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
 </style>

@@ -16,6 +16,7 @@
     "element-ui": "^2.2.2",
     "fastclick": "^1.0.6",
     "mint-ui": "^2.2.13",
+    "muse-ui": "^2.1.0",
     "normalize.css": "^5.0.0",
     "superagent": "^3.5.2",
     "superagent-jsonp": "^0.1.1",

@@ -7,6 +7,7 @@ const state = {
     attractionItem: {}
 }
 
+// Get the list of pictures for a single attraction
 const getters = {
     slides(state) {
         let filepaths = state.attractionItem.pic

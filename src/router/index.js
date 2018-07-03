@@ -5,6 +5,7 @@ import Home from '../pages/Home'
 import Search from '../pages/Search'
 import AttractionList from '../pages/AttractionList'
 import Attraction from '../pages/Attraction'
+import ChatBot from '../pages/ChatBot'
 
 Vue.use(Router)
 
@@ -33,6 +34,11 @@ export default new Router({
       path: '/attraction/:id',
       name: 'Attraction',
       component: Attraction
+    },
+    {
+      path: '/chatbot',
+      name: 'ChatBot',
+      component: ChatBot
     },
     {
       path: '*',

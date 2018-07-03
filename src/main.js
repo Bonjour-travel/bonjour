@@ -9,6 +9,10 @@ import fastclick from 'fastclick'
 import 'normalize.css'
 import { Button } from 'mint-ui';
 import 'mint-ui/lib/style.css';
+import MuseUI from 'muse-ui';
+import 'muse-ui/dist/muse-ui.css';
+import 'muse-ui/dist/theme-carbon.css';
+Vue.use(MuseUI)
 
 import axios from "axios";
 import VueAMap from 'vue-amap';
@@ -48,5 +52,9 @@ new Vue({
     router,
     store,
     template: '<App/>',
-    components: { App }
+    components: { App },
+    // 组件创建前，进行异步数据数据请求
+    beforeCreate() {
+        this.$store.dispatch('getAllData', this)
+    }
 })
